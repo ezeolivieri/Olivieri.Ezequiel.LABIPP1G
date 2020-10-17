@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1602892878 source:/home/ezequielo/Escritorio/ParcialLaboParte1/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	<ctype.h>
+	<string.h>
+
