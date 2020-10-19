@@ -33,14 +33,23 @@
 		</Compiler>
 		<Unit filename="eAuto.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="eAuto.h" />
+		<Unit filename="eColor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="eColor.h" />
 		<Unit filename="eFecha.h" />
 		<Unit filename="eMarca.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="eMarca.h" />
+		<Unit filename="eServicio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="eTrabajo.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="eTrabajo.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
