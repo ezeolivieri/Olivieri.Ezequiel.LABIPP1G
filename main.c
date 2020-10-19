@@ -4,13 +4,15 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "eFecha.h"
-#include "eMarca.h"
 #include "eAuto.h"
+#include "eMarca.h"
 #include "eTrabajo.h"
-#include "eServicio.h"
 #include "eColor.h"
+#include "eFecha.h"
+#include "eServicio.h"
 
+#define TRUE     1
+#define FALSE    0
 #define CANTIDAD 10
 #define CANT_M   5
 #define CANT_T   5

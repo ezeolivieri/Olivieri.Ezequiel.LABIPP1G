@@ -2,10 +2,6 @@
 #define ETRABAJO_H_INCLUDED
 
 #include "eFecha.h"
-#include "eMarca.h"
-#include "eAuto.h"
-#include "eServicio.h"
-#include "eColor.h"
 
 typedef struct{
     int id; //Autoincremental
@@ -17,6 +13,10 @@ typedef struct{
 
 #endif // ETRABAJO_H_INCLUDED
 
+#include "eAuto.h"
+#include "eServicio.h"
+#include "eMarca.h"
+#include "eColor.h"
 /** \brief Inicializa los trabajos poniendo el atributo isEmpty en 1
  *
  * \param trabajos[] eTrabajo

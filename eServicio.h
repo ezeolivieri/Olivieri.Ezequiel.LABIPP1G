@@ -1,12 +1,6 @@
 #ifndef ESERVICIO_H_INCLUDED
 #define ESERVICIO_H_INCLUDED
 
-#include "eFecha.h"
-#include "eMarca.h"
-#include "eAuto.h"
-#include "eTrabajo.h"
-#include "eColor.h"
-
 typedef struct{
     int id; //Comienza en 20000
     char descripcion[25]; //Max. 25 caracteres

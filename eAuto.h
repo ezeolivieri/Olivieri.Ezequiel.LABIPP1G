@@ -1,26 +1,6 @@
 #ifndef EAUTO_H_INCLUDED
 #define EAUTO_H_INCLUDED
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdio_ext.h>
-#include <ctype.h>
-#include <string.h>
-
-#include "eFecha.h"
-#include "eMarca.h"
-#include "eAuto.h"
-#include "eTrabajo.h"
-#include "eServicio.h"
-#include "eColor.h"
-
-#define TRUE     1
-#define FALSE    0
-#define CANTIDAD 10
-#define CANT_M   5
-#define CANT_T   5
-#define CANT_C   5
-#define CANT_S   4
 
 typedef struct{
     int id;
@@ -30,6 +10,8 @@ typedef struct{
     int modelo; //Año de fabricacion
     int isEmpty;
 } eAuto;
+#include "eMarca.h"
+#include "eColor.h"
 
 #endif // EAUTO_H_INCLUDED
 

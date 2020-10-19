@@ -1,12 +1,6 @@
 #ifndef ECOLOR_H_INCLUDED
 #define ECOLOR_H_INCLUDED
 
-#include "eFecha.h"
-#include "eMarca.h"
-#include "eAuto.h"
-#include "eTrabajo.h"
-#include "eServicio.h"
-
 typedef struct{
     int id; //Comienza en 5000
     char nombreColor[20]; //Max. 20 caracteres

@@ -1,11 +1,6 @@
 #ifndef EMARCA_H_INCLUDED
 #define EMARCA_H_INCLUDED
 
-#include "eFecha.h"
-#include "eAuto.h"
-#include "eTrabajo.h"
-#include "eServicio.h"
-#include "eColor.h"
 
 typedef struct{
     int id; //Comienza en 1000
