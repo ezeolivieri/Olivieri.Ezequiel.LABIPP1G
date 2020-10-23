@@ -17,6 +17,7 @@ typedef struct{
  *
  */
 int mostrarServicios(eServicio servicios[], int tam);
+
 /** \brief Impresion de una estructura Servicio por pantalla
  *
  * \param servicio eServicio
@@ -35,12 +36,13 @@ void mostrarServicio(eServicio servicio);
  *
  */
 int obtenerDescripcionServicio(eServicio servicios[], int tam, int id, char descripcion[]);
-/** \brief Retorna un entero indicando si es un id de Servicio valido o no
+
+/** \brief Retorna el indice del servicio buscado
  *
  * \param servicios[] eServicio
- * \param tamS int
- * \param id int
+ * \param tam int
+ * \param idServicio int
  * \return int
  *
  */
-int validarIdServicio( eServicio servicios[], int tamS, int id );
+int buscarServicio(eServicio servicios[], int tam, int idServicio);

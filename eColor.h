@@ -15,6 +15,7 @@ typedef struct{
  *
  */
 void mostrarColor(eColor color);
+
 /** \brief Muestra un array de colores en forma de tabla por pantalla
  *
  * \param colores[] eColor
@@ -23,17 +24,6 @@ void mostrarColor(eColor color);
  *
  */
 int mostrarColores(eColor colores[], int tam);
-/** \brief Retorna un entero que indica si es un id valido o no
- *
- * \param colores[] eColor
- * \param tam int
- * \param id int
- * \return int
- *
- */
-int validarIdColor(eColor colores[], int tam, int id);
-
-
 
 /** \brief Dado un id de color obtiene su nombre y lo guarda en nombreColor
  *

@@ -10,6 +10,7 @@
 #include "eTrabajo.h"
 #include "eServicio.h"
 #include "eColor.h"
+#include "Validaciones.h"
 
 #define TRUE     1
 #define FALSE    0
@@ -44,24 +45,6 @@ int mostrarMarcas(eMarca marcas[], int tam)
     }
 
     return error;
-}
-
-int validarIdMarca(eMarca marcas[], int tam, int id)
-{
-    int esValido = 0;
-
-    if( marcas != NULL && tam > 0 && id >= 1000 )
-    {
-        for( int i=0; i<tam; i++ )
-        {
-            if( marcas[i].id == id ){
-                esValido=1;
-                break;
-            }
-        }
-    }
-
-    return esValido;
 }
 
 int obtenerDescripcionMarca(eMarca marcas[], int tam, int id, char descripcion[])

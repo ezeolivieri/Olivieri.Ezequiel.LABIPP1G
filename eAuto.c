@@ -10,6 +10,8 @@
 #include "eTrabajo.h"
 #include "eServicio.h"
 #include "eColor.h"
+#include "eCliente.h"
+#include "Validaciones.h"
 
 #define TRUE     1
 #define FALSE    0
@@ -51,13 +53,14 @@ int buscarAutoLibre(eAuto autos[], int tam)
     return indice;
 }
 
-int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, int idAuto)
+int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, int idAuto, eCliente clientes[], int tamClientes)
 {
 
     int error = 1;
     int indice;
     int auxIdMarca;
     int auxIdColor;
+    int auxIdCliente;
     eAuto nuevoAuto;
 
     if( autos!=NULL && tam > 0 && idAuto > 0 )
@@ -76,16 +79,17 @@ int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
             nuevoAuto.id = idAuto;
             nuevoAuto.isEmpty = 0;
 
-            printf("\n\n     INGRESE PATENTE: ");
+            printf("\n     INGRESE PATENTE: ");
             __fpurge(stdin);
             fgets(nuevoAuto.patente, 8, stdin);
+            strupr(nuevoAuto.patente);
 
-            while( strlen( nuevoAuto.patente )!=7 )
+            while( !tieneFormatoDePatente( nuevoAuto.patente ) )
             {
-                system("clear");
                 printf("\n\n   ERROR. REINGRESE PATENTE: ");
                 __fpurge(stdin);
                 fgets(nuevoAuto.patente, 8, stdin);
+                strupr(nuevoAuto.patente);
             }
             printf("\n\n");
 
@@ -110,7 +114,7 @@ int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
 
             while( validarIdColor( colores, tamC, auxIdColor ) == 0 )
             {
-                printf("    ID INVALIDO. REINGRESE ID COLOR:  \n");
+                printf("\n    ID INVALIDO. REINGRESE ID COLOR:  \n");
                 scanf("%d", &auxIdColor);
             }
 
@@ -124,6 +128,21 @@ int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
                 printf("\n\n        ERROR. REINGRESE: ");
                 scanf("%d", &nuevoAuto.modelo);
             }
+
+            printf("\n\n");
+
+            mostrarClientes( clientes, tamClientes );
+
+            printf("\n\n    INGRESE ID CLIENTE: ");
+            scanf("%d", &auxIdCliente);
+
+            while( validarIdCliente( clientes, tamClientes, auxIdCliente ) == 0 )
+            {
+                printf("    ID INVALIDO. REINGRESE ID CLIENTE:  \n");
+                scanf("%d", &auxIdCliente);
+            }
+
+            nuevoAuto.idCliente = auxIdCliente;
 
             autos[indice] = nuevoAuto;
             error = 0;
@@ -152,7 +171,7 @@ int buscarAuto(eAuto lista[], int tam, int idAuto)
     return indice;
 }
 
-int mostrarAutos(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC )
+int mostrarAutos(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamClientes )
 {
     int error = -1;
     int flag = 0;
@@ -160,14 +179,14 @@ int mostrarAutos(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor color
     if( autos != NULL && tam > 0 )
     {
         printf("\n\n        *** LISTADO AUTOS ***            \n");
-        printf(" IdAuto    Patente    Marca    Color     Modelo\n");
-        printf("-------------------------------------------------\n\n");
+        printf(" IdAuto    Patente    Marca    Color     Modelo      Cliente\n");
+        printf("---------------------------------------------------------------\n\n");
 
         for( int i=0; i<tam; i++ )
         {
             if( autos[i].isEmpty == 0 )
             {
-                mostrarAuto( autos[i], marcas, tamM, colores, tamC);
+                mostrarAuto( autos[i], marcas, tamM, colores, tamC, clientes, tamClientes);
                 flag = 1;
             }
         }
@@ -246,21 +265,24 @@ int autoSwap(eAuto* a, eAuto* b)
     return error;
 }
 
-void mostrarAuto(eAuto car, eMarca marcas[], int tamM, eColor colores[], int tamC)
+void mostrarAuto(eAuto car, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamClientes)
 {
 
     char descMarca[20];
     char descColor[20];
+    char nombreCliente[20];
 
     if( (obtenerDescripcionMarca(marcas,tamM, car.idMarca, descMarca) == 0 ) &&
-        (obtenerNombreColor(colores,tamC, car.idColor, descColor) == 0 ))
+        (obtenerNombreColor(colores,tamC, car.idColor, descColor) == 0 ) &&
+        (obtenerNombreCliente(clientes, tamClientes, car.idCliente, nombreCliente) == 0 ) )
     {
-        printf(" %5d  %10s  %10s  %10s  %4d\n",
+        printf(" %5d  %10s  %10s  %10s  %4d   %12s\n",
                    car.id,
                    car.patente,
                    descMarca,
                    descColor,
-                   car.modelo );
+                   car.modelo,
+                   nombreCliente );
     }
     else
     {
@@ -269,7 +291,7 @@ void mostrarAuto(eAuto car, eMarca marcas[], int tamM, eColor colores[], int tam
 
 }
 
-int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC)
+int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamClientes)
 {
     int error = 1;
     int idAuto;
@@ -287,7 +309,7 @@ int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colo
         system("clear");
         printf("\n\n\n    *** MODIFICAR AUTO ***\n");
         ordenarAutosPorMarcaPatente( autos, tam, marcas, tamM );
-        mostrarAutos(autos, tam, marcas, tamM, colores, tamC);
+        mostrarAutos(autos, tam, marcas, tamM, colores, tamC, clientes, tamClientes);
         printf("Ingrese el ID del Auto: ");
         scanf("%d", &idAuto);
 
@@ -300,7 +322,7 @@ int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colo
         else
         {
 
-            mostrarAuto(autos[indice], marcas, tamM, colores, tamC);
+            mostrarAuto(autos[indice], marcas, tamM, colores, tamC, clientes, tamClientes);
 
             // PEDIR EL CAMPO A MODIFICAR
             // SE DEBE PODER MODIFICAR MODELO O COLOR
@@ -363,7 +385,7 @@ int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colo
 
 }
 
-int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC)
+int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamClientes)
 {
     int error = 1;
     int idAuto;
@@ -375,7 +397,7 @@ int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
         system("clear");
         printf("    *** BAJA DE AUTO ***\n");
         ordenarAutosPorMarcaPatente( autos, tam, marcas, tamM );
-        mostrarAutos(autos, tam, marcas, tamM, colores, tamC);
+        mostrarAutos(autos, tam, marcas, tamM, colores, tamC, clientes, tamClientes);
         printf("Ingrese el ID del Auto: ");
         scanf("%d", &idAuto);
 
@@ -387,7 +409,7 @@ int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
         }
         else
         {
-            mostrarAuto(autos[indice], marcas, tamM, colores, tamC);
+            mostrarAuto(autos[indice], marcas, tamM, colores, tamC, clientes, tamClientes);
             printf("\n\nConfirma baja\n");
             printf("1 - SI\n2 - NO\n");
             printf("\nRespuesta: ");
@@ -407,6 +429,7 @@ int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
     return error;
 
 }
+
 int obtenerPatenteAuto(eAuto autos[], int tam, char patenteBuscar[], char patenteGuardar[])
 {
     int error = 1;
@@ -427,19 +450,20 @@ int obtenerPatenteAuto(eAuto autos[], int tam, char patenteBuscar[], char patent
     return error;
 
 }
-int validarPatenteAuto(eAuto autos[], int tam, char patente[])
-{
-    int esValido = 0;
 
-    if( autos != NULL && tam > 0 && patente != NULL ){
-        for( int i=0; i<tam; i++ )
+void strupr( char cadena[] )
+{
+
+    int indice = 0;
+
+    while( cadena[indice] != '\0' )
+    {
+        if( isalpha(cadena[indice]) )
         {
-            if( strcmp(autos[i].patente, patente) == 0 ){
-                esValido = 1;
-                break;
-            }
+            cadena[indice] = toupper(cadena[indice]);
         }
+
+        indice++;
     }
 
-    return esValido;
 }

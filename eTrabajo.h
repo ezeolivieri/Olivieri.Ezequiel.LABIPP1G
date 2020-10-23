@@ -17,6 +17,7 @@ typedef struct{
 #include "eServicio.h"
 #include "eMarca.h"
 #include "eColor.h"
+
 /** \brief Inicializa los trabajos poniendo el atributo isEmpty en 1
  *
  * \param trabajos[] eTrabajo
@@ -34,6 +35,7 @@ int inicializarTrabajos(eTrabajo trabajos[], int tam);
  *
  */
 int buscarWorkLibre(eTrabajo works[], int tam);
+
 /** \brief Muestra un array de Trabajos en forma de tabla por pantalla
  *
  * \param trabajos[] eTrabajo
@@ -46,6 +48,7 @@ int buscarWorkLibre(eTrabajo works[], int tam);
  *
  */
 int mostrarTrabajos(eTrabajo trabajos[], int tam, eAuto autos[], int tamA, eServicio servicios[], int tamS);
+
 /** \brief Impresion de una estructura Trabajo por pantalla
  *
  * \param trabajo eTrabajo
@@ -57,6 +60,7 @@ int mostrarTrabajos(eTrabajo trabajos[], int tam, eAuto autos[], int tamA, eServ
  *
  */
 void mostrarTrabajo(eTrabajo trabajo, eAuto autos[], int tamA, eServicio servicios[], int tamS);
+
 /** \brief Alta de una estructura Trabajo
  *
  * \param works[] eTrabajo
@@ -73,5 +77,5 @@ void mostrarTrabajo(eTrabajo trabajo, eAuto autos[], int tamA, eServicio servici
  * \return int
  *
  */
-int altaTrabajo(eTrabajo works[], int tam, eAuto autos[], int tamN, eServicio servicios[], int tamS, eMarca marcas[], int tamM, eColor colores[], int tamC, int idWork);
+int altaTrabajo(eTrabajo works[], int tam, eAuto autos[], int tamN, eServicio servicios[], int tamS, eMarca marcas[], int tamM, eColor colores[], int tamC, int idWork, eCliente clientes[], int tamClientes);
 

@@ -19,6 +19,8 @@
 #define CANT_C   5
 #define CANT_S   4
 
+#include "Validaciones.h"
+
 int mostrarServicios(eServicio servicios[], int tam)
 {
     int error = -1;
@@ -69,21 +71,18 @@ int obtenerDescripcionServicio(eServicio servicios[], int tam, int id, char desc
 
 }
 
-
-int validarIdServicio( eServicio servicios[], int tam, int id )
+int buscarServicio(eServicio servicios[], int tam, int idServicio)
 {
-    int esValido = 0;
+    int indice = -1;
 
-    if( servicios != NULL && tam > 0 && id >= 20000 ){
-
-        for( int i=0; i<tam; i++ )
+    for(int i = 0; i < tam; i++)
+    {
+        if( servicios[i].id == idServicio )
         {
-            if( servicios[i].id == id ){
-                esValido = 1;
-                break;
-            }
+            indice = i;
+            break;
         }
     }
 
-    return esValido;
+    return indice;
 }

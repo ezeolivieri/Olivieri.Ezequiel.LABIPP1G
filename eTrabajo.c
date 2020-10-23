@@ -10,6 +10,7 @@
 #include "eTrabajo.h"
 #include "eServicio.h"
 #include "eColor.h"
+#include "Validaciones.h"
 
 #define TRUE     1
 #define FALSE    0
@@ -50,6 +51,7 @@ int buscarWorkLibre(eTrabajo works[], int tam)
 
     return indice;
 }
+
 int mostrarTrabajos(eTrabajo trabajos[], int tam, eAuto autos[], int tamA, eServicio servicios[], int tamS)
 {
     int error = 1;
@@ -57,7 +59,7 @@ int mostrarTrabajos(eTrabajo trabajos[], int tam, eAuto autos[], int tamA, eServ
 
     if( trabajos != NULL && tam > 0)
     {
-        //system("cls");
+
         printf(" IdTrabajo    Patente    Servicio    Fecha\n");
         printf("-----------------------------------------------\n\n");
 
@@ -85,14 +87,12 @@ int mostrarTrabajos(eTrabajo trabajos[], int tam, eAuto autos[], int tamA, eServ
 void mostrarTrabajo(eTrabajo trabajo, eAuto autos[], int tamA, eServicio servicios[], int tamS)
 {
     char descServicio[25];
-    char patenteAuto[9];
 
-    if( (obtenerDescripcionServicio(servicios,tamS, trabajo.idServicio, descServicio) == 0) &&
-        (obtenerPatenteAuto(autos, tamA, trabajo.patente, patenteAuto) == 0) )
+    if( (obtenerDescripcionServicio(servicios,tamS, trabajo.idServicio, descServicio) == 0) )
     {
-        printf(" %5d  %10s  %10s        %02d/%02d/%d\n",
+        printf("        %5d  %10s  %10s        %02d/%02d/%d\n",
                trabajo.id,
-               patenteAuto,
+               trabajo.patente,
                descServicio,
                trabajo.fecha.dia,
                trabajo.fecha.mes,
@@ -100,10 +100,11 @@ void mostrarTrabajo(eTrabajo trabajo, eAuto autos[], int tamA, eServicio servici
     }
     else
     {
-        printf("Problema al obtener descripciones de servicio y/o modelo notebook\n\n");
+        printf("Problema al obtener descripciones.\n\n");
     }
 }
-int altaTrabajo(eTrabajo works[], int tam, eAuto autos[], int tamA, eServicio servicios[], int tamS, eMarca marcas[], int tamM, eColor colores[], int tamC, int idWork)
+
+int altaTrabajo(eTrabajo works[], int tam, eAuto autos[], int tamA, eServicio servicios[], int tamS, eMarca marcas[], int tamM, eColor colores[], int tamC, int idWork, eCliente clientes[], int tamClientes)
 {
 
     int error = 1;
@@ -128,7 +129,7 @@ int altaTrabajo(eTrabajo works[], int tam, eAuto autos[], int tamA, eServicio se
             nuevoWork.isEmpty = 0;
 
             ordenarAutosPorMarcaPatente( autos, tamA, marcas, tamM );
-            mostrarAutos(autos, tamA, marcas, tamM, colores, tamC);
+            mostrarAutos(autos, tamA, marcas, tamM, colores, tamC, clientes, tamClientes);
 
             printf("\n\n             INGRESE PATENTE DE AUTO: ");
             __fpurge(stdin);
@@ -157,6 +158,12 @@ int altaTrabajo(eTrabajo works[], int tam, eAuto autos[], int tamA, eServicio se
             printf("Ingrese fecha dd/mm/aaaa: ");
             scanf("%d/%d/%d", &nuevoWork.fecha.dia, &nuevoWork.fecha.mes, &nuevoWork.fecha.anio);
 
+            while( !validarFecha( nuevoWork.fecha ) )
+            {
+                printf("ERROR. Ingrese fecha dd/mm/aaaa: ");
+                scanf("%d/%d/%d", &nuevoWork.fecha.dia, &nuevoWork.fecha.mes, &nuevoWork.fecha.anio);
+            }
+
             works[indice] = nuevoWork;
             error = 0;
         }
@@ -165,3 +172,4 @@ int altaTrabajo(eTrabajo works[], int tam, eAuto autos[], int tamA, eServicio se
     return error;
 
 }
+

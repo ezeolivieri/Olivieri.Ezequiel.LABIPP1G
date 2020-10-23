@@ -10,6 +10,7 @@
 #include "eTrabajo.h"
 #include "eServicio.h"
 #include "eColor.h"
+#include "Validaciones.h"
 
 #define TRUE     1
 #define FALSE    0
@@ -45,27 +46,6 @@ int mostrarColores(eColor colores[], int tam)
 
     return error;
 }
-
-int validarIdColor(eColor colores[], int tam, int id)
-{
-    int esValido = 0;
-
-    if( colores != NULL && tam > 0 && id >= 5000 )
-    {
-        for( int i=0; i<tam; i++ )
-        {
-            if( colores[i].id == id ){
-                esValido=1;
-                break;
-            }
-        }
-    }
-
-    return esValido;
-}
-
-
-
 
 int obtenerNombreColor(eColor colores[], int tam, int id, char nombreColor[])
 {

@@ -8,10 +8,12 @@ typedef struct{
     int idMarca; //Validar
     int idColor; //Validar
     int modelo; //Año de fabricacion
+    int idCliente;
     int isEmpty;
 } eAuto;
 #include "eMarca.h"
 #include "eColor.h"
+#include "eCliente.h"
 
 #endif // EAUTO_H_INCLUDED
 
@@ -45,7 +47,7 @@ int buscarAutoLibre(eAuto autos[], int tam);
  * \return int
  *
  */
-int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, int idAuto);
+int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, int idAuto, eCliente clientes[], int tamClientes);
 
 /** \brief Retorna el indice del auto buscado
  *
@@ -65,10 +67,14 @@ int buscarAuto(eAuto autos[], int tam, int idAuto);
  * \param tamM int
  * \param colores[] eColor
  * \param tamC int
+ * \param tamC int
+ * \param eCliente clientes[] int tamClientes
+ * \param int tamClientes
  * \return int
  *
  */
-int mostrarAutos(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC );
+int mostrarAutos(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamClientes );
+
 /** \brief Impresion de una estructura auto por pantalla
  *
  * \param car eAuto
@@ -79,7 +85,7 @@ int mostrarAutos(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor color
  * \return void
  *
  */
-void mostrarAuto(eAuto car, eMarca marcas[], int tamM, eColor colores[], int tamC);
+void mostrarAuto(eAuto car, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamClientes);
 
 /** \brief Modificacion de una estructura auto
  *
@@ -92,7 +98,8 @@ void mostrarAuto(eAuto car, eMarca marcas[], int tamM, eColor colores[], int tam
  * \return int
  *
  */
-int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC);
+int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamClientes);
+
 /** \brief Baja lógica de una estructura auto
  *
  * \param autos[] eAuto
@@ -104,7 +111,7 @@ int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colo
  * \return int
  *
  */
-int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC);
+int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamClientes);
 
 /** \brief Dada una patenteBuscar, se busca y de encontrarse se guarda en patenteGuardar
  *
@@ -117,16 +124,6 @@ int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
  */
 int obtenerPatenteAuto(eAuto autos[], int tam, char patenteBuscar[], char patenteGuardar[]);
 
-/** \brief Retorna un entero indicando si es una patente de Auto valida o no
- *
- * \param autos[] eAuto
- * \param tamA int
- * \param patente[] char
- * \return int
- *
- */
-int validarPatenteAuto(eAuto autos[], int tamA, char patente[]);
-
 /** \brief Dada una list de autos, se ordena por Marca y Patente
  *
  * \param list[] eAuto
@@ -135,6 +132,7 @@ int validarPatenteAuto(eAuto autos[], int tamA, char patente[]);
  *
  */
 int ordenarAutosPorMarcaPatente(eAuto autos[], int tam, eMarca marcas[], int tamM);
+
 /** \brief Swapeo de estructuras eAuto
  *
  * \param a eAuto*
@@ -143,3 +141,11 @@ int ordenarAutosPorMarcaPatente(eAuto autos[], int tam, eMarca marcas[], int tam
  *
  */
 int autoSwap(eAuto* a, eAuto* b);
+
+/** \brief Modifica solamente las letras en cadena, pasandolas a mayusculas
+ *
+ * \param cadena[] char*
+ * \return void
+ *
+ */
+void strupr( char cadena[] );

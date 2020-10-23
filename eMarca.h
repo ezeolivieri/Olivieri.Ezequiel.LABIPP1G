@@ -16,6 +16,7 @@ typedef struct{
  *
  */
 void mostrarMarca( eMarca marca );
+
 /** \brief Muestra un array de marcas en forma de tabla por pantalla
  *
  * \param marcas[] eMarca
@@ -24,15 +25,7 @@ void mostrarMarca( eMarca marca );
  *
  */
 int mostrarMarcas(eMarca marcas[], int tam);
-/** \brief Retorna un entero que indica si es un id valido o no
- *
- * \param marcas[] eMarca
- * \param tam int
- * \param id int
- * \return int
- *
- */
-int validarIdMarca(eMarca marcas[], int tam, int id);
+
 /** \brief Dado un id de marca obtiene su descripcion y la guarda en descripcion
  *
  * \param marcas[] eMarca

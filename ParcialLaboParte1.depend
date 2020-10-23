@@ -103,7 +103,7 @@
 	"eServicio.h"
 	"eColor.h"
 
-1603412310 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eAuto.c
+1603495935 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eAuto.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio_ext.h>
@@ -115,27 +115,30 @@
 	"eTrabajo.h"
 	"eServicio.h"
 	"eColor.h"
+	"eCliente.h"
+	"Validaciones.h"
 
-1603411511 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eAuto.h
+1603495739 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eAuto.h
 	"eMarca.h"
 	"eColor.h"
+	"eCliente.h"
 
-1603134342 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eMarca.h
+1603496243 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eMarca.h
 
-1603134606 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eColor.h
+1603496107 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eColor.h
 
-1602895420 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eFecha.h
+1603496212 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eFecha.h
 
-1603411516 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eTrabajo.h
+1603496370 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eTrabajo.h
 	"eFecha.h"
 	"eAuto.h"
 	"eServicio.h"
 	"eMarca.h"
 	"eColor.h"
 
-1603134699 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eServicio.h
+1603496301 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eServicio.h
 
-1602895338 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eColor.c
+1603496148 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eColor.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio_ext.h>
@@ -147,8 +150,9 @@
 	"eTrabajo.h"
 	"eServicio.h"
 	"eColor.h"
+	"Validaciones.h"
 
-1603133971 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eMarca.c
+1603496273 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eMarca.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio_ext.h>
@@ -160,8 +164,9 @@
 	"eTrabajo.h"
 	"eServicio.h"
 	"eColor.h"
+	"Validaciones.h"
 
-1602895329 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eServicio.c
+1603496329 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eServicio.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio_ext.h>
@@ -173,8 +178,9 @@
 	"eTrabajo.h"
 	"eServicio.h"
 	"eColor.h"
+	"Validaciones.h"
 
-1603410983 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eTrabajo.c
+1603496387 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eTrabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio_ext.h>
@@ -186,8 +192,9 @@
 	"eTrabajo.h"
 	"eServicio.h"
 	"eColor.h"
+	"Validaciones.h"
 
-1603412369 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/main.c
+1603496420 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdio_ext.h>
@@ -199,4 +206,58 @@
 	"eColor.h"
 	"eFecha.h"
 	"eServicio.h"
+	"eCliente.h"
+	"Informes.h"
+	"Validaciones.h"
+
+1603495967 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eCliente.h
+
+1603496025 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eCliente.c
+	<stdio.h>
+	<string.h>
+	"eCliente.h"
+
+1603495440 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/Informes.c
+	<stdlib.h>
+	<stdio_ext.h>
+	<string.h>
+	"eAuto.h"
+	"eMarca.h"
+	"eColor.h"
+	"eCliente.h"
+	"Informes.h"
+	"eTrabajo.h"
+	"eServicio.h"
+
+1603493916 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/Informes.h
+	"eAuto.h"
+	"eMarca.h"
+	"eColor.h"
+	"eCliente.h"
+	"eTrabajo.h"
+	"eServicio.h"
+	"eFecha.h"
+
+1603496198 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eFecha.c
+	"eFecha.h"
+
+1603496308 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/Validaciones.h
+	"eAuto.h"
+	"eCliente.h"
+	"eColor.h"
+	"eFecha.h"
+	"eMarca.h"
+	"eServicio.h"
+	"eTrabajo.h"
+
+1603496457 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/Validaciones.c
+	<string.h>
+	<ctype.h>
+	"eAuto.h"
+	"eCliente.h"
+	"eColor.h"
+	"eFecha.h"
+	"eMarca.h"
+	"eServicio.h"
+	"eTrabajo.h"
 
