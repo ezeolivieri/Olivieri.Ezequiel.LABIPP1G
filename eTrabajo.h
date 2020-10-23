@@ -5,7 +5,7 @@
 
 typedef struct{
     int id; //Autoincremental
-    int patente; //debe existir. VALIDAR
+    char patente[8]; //debe existir. VALIDAR
     int idServicio; //debe existir. VALIDAR
     eFecha fecha; //Validar dia, mes y anio
     int isEmpty;

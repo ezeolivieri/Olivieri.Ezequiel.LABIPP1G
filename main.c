@@ -50,10 +50,12 @@ char subMenuListas();
  * \param tamS int
  * \param trabajos[] eTrabajo
  * \param tamTs int
+ * \param autosIngresados int
+ * \param worksIngresados int
  * \return void
  *
  */
-void mostrarListaSegunOpcion( char opcion, eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eServicio servicios[], int tamS, eTrabajo trabajos[], int tamTs );
+void mostrarListaSegunOpcion( char opcion, eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eServicio servicios[], int tamS, eTrabajo trabajos[], int tamTs, int autosIngresados, int worksIngresados );
 
 /** \brief Muestra por pantalla una confirmacion de salida y retorna la respuesta
  *
@@ -72,7 +74,8 @@ int main()
 {
     int continuar = TRUE;
     int respuesta;
-    int ingresados = 0;
+    int autosIngresados = 0;
+    int worksIngresados = 0;
     int proxIdAuto = 2500;
     int proxIdTrabajo = 12500;
     char opcion;
@@ -139,7 +142,7 @@ int main()
                 if( altaAuto(autos, CANTIDAD, marcas, CANT_M, colores, CANT_C, proxIdAuto) == 0 )
                 {
                     proxIdAuto++;
-                    ingresados++;
+                    autosIngresados++;
                     printf("\n\nALTA EXITOSA!\n");
                 }
                 else
@@ -150,7 +153,7 @@ int main()
 
             // MODIFICAR AUTO
             case 'b':
-                if( ingresados > 0 )
+                if( autosIngresados > 0 )
                 {
                     respuesta = modificarAuto(autos, CANTIDAD, marcas, CANT_M, colores, CANT_C);
 
@@ -167,17 +170,21 @@ int main()
                         printf("\n\nSe ha producido un error en la modificacion\n");
                     }
                 }
+                else
+                {
+                    printf("\n\nTodavia no hay ningun auto ingresado.\n");
+                }
                 break;
 
             // BAJA AUTO
             case 'c':
-                if( ingresados > 0 )
+                if( autosIngresados > 0 )
                 {
                     respuesta = bajaAuto(autos, CANTIDAD, marcas, CANT_M, colores, CANT_C);
 
                     if( respuesta == 0)
                     {
-                        ingresados--;
+                        autosIngresados--;
                         printf("Baja exitosa\n");
                     }
                     else if(respuesta == 2)
@@ -188,6 +195,10 @@ int main()
                     {
                         printf("Se ha producido un error en la baja\n");
                     }
+                }
+                else
+                {
+                    printf("\n\nTodavia no hay ningun auto ingresado.\n");
                 }
 
                 break;
@@ -201,20 +212,28 @@ int main()
                 }
                 else
                 {
-                    mostrarListaSegunOpcion(opcion, autos, CANTIDAD, marcas, CANT_M, colores, CANT_C, servicios, CANT_S, trabajos, CANT_T);
+                    mostrarListaSegunOpcion(opcion, autos, CANTIDAD, marcas, CANT_M, colores, CANT_C, servicios, CANT_S, trabajos, CANT_T, autosIngresados, worksIngresados);
                 }
                 break;
 
             // ALTA TRABAJO
             case 'e':
-                if( altaTrabajo(trabajos, CANT_T, autos, CANTIDAD, servicios, CANT_S, marcas, CANT_M, colores, CANT_C, proxIdTrabajo) == 0 )
+                if( autosIngresados > 0 )
                 {
-                    proxIdTrabajo++;
-                    printf("\n\nALTA EXITOSA!\n");
+                    if( altaTrabajo(trabajos, CANT_T, autos, CANTIDAD, servicios, CANT_S, marcas, CANT_M, colores, CANT_C, proxIdTrabajo) == 0 )
+                    {
+                        proxIdTrabajo++;
+                        worksIngresados++;
+                        printf("\n\nALTA EXITOSA!\n");
+                    }
+                    else
+                    {
+                        printf("Problema para realizar el alta.");
+                    }
                 }
                 else
                 {
-                    printf("Problema para realizar el alta.");
+                    printf("\n\nTodavia no hay ningun auto ingresado.\n");
                 }
                 break;
 
@@ -285,14 +304,21 @@ char subMenuListas()
     return opcion;
 }
 
-void mostrarListaSegunOpcion( char opcion, eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eServicio servicios[], int tamS, eTrabajo trabajos[], int tamTs )
+void mostrarListaSegunOpcion( char opcion, eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, eServicio servicios[], int tamS, eTrabajo trabajos[], int tamTs, int autosIngresados, int worksIngresados )
 {
     switch( opcion )
     {
         //AUTOS
         case 'a':
-            ordenarAutosPorMarcaPatente( autos, tam );
-            mostrarAutos( autos, tam, marcas, tamM, colores, tamC );
+            if( autosIngresados > 0 )
+            {
+                ordenarAutosPorMarcaPatente( autos, tam, marcas, tamM);
+                mostrarAutos( autos, tam, marcas, tamM, colores, tamC );
+            }
+            else
+            {
+                printf("\n\nTodavia no hay autos ingresados.\n");
+            }
             break;
         //MARCAS
         case 'b':
@@ -308,7 +334,14 @@ void mostrarListaSegunOpcion( char opcion, eAuto autos[], int tam, eMarca marcas
             break;
         //TRABAJOS
         case 'e':
-            mostrarTrabajos( trabajos, tamTs, autos, tam, servicios, tamS );
+            if( worksIngresados > 0 )
+            {
+                mostrarTrabajos( trabajos, tamTs, autos, tam, servicios, tamS );
+            }
+            else
+            {
+                printf("\n\nTodavia no hay trabajos ingresados.\n");
+            }
             break;
         //OPCION INVALIDA
         default:

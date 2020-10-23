@@ -34,6 +34,7 @@ int inicializarAutos(eAuto autos[], int tam)
 
     return error;
 }
+
 int buscarAutoLibre(eAuto autos[], int tam)
 {
     int indice = -1;
@@ -49,6 +50,7 @@ int buscarAutoLibre(eAuto autos[], int tam)
 
     return indice;
 }
+
 int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC, int idAuto)
 {
 
@@ -56,7 +58,6 @@ int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
     int indice;
     int auxIdMarca;
     int auxIdColor;
-    float precioNote;
     eAuto nuevoAuto;
 
     if( autos!=NULL && tam > 0 && idAuto > 0 )
@@ -77,14 +78,14 @@ int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
 
             printf("\n\n     INGRESE PATENTE: ");
             __fpurge(stdin);
-            gets(nuevoAuto.patente);
+            fgets(nuevoAuto.patente, 8, stdin);
 
             while( strlen( nuevoAuto.patente )!=7 )
             {
                 system("clear");
                 printf("\n\n   ERROR. REINGRESE PATENTE: ");
                 __fpurge(stdin);
-                gets(nuevoAuto.patente);
+                fgets(nuevoAuto.patente, 8, stdin);
             }
             printf("\n\n");
 
@@ -134,6 +135,7 @@ int altaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
     return error;
 
 }
+
 int buscarAuto(eAuto lista[], int tam, int idAuto)
 {
     int indice = -1;
@@ -184,14 +186,14 @@ int mostrarAutos(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor color
 
 }
 
-int ordenarAutosPorMarcaPatente(eAuto list[], int tam)
+int ordenarAutosPorMarcaPatente(eAuto autos[], int tam, eMarca marcas[], int tamM)
 {
 
     int error = 1;
     char auxMarcaI[25];
     char auxMarcaJ[25];
 
-    if( list != NULL && tam > 0 )
+    if( autos != NULL && tam > 0 )
     {
 
         error = 0;
@@ -202,18 +204,18 @@ int ordenarAutosPorMarcaPatente(eAuto list[], int tam)
             for( int j = i+1; j < tam; j++ )
             {
 
-                if( strcmp( list[i].patente, list[j].patente) > 0 )
+                if( strcmp( autos[i].patente, autos[j].patente) > 0 )
                 {
-                    autoSwap(&list[i], &list[j]);
+                    autoSwap(&autos[i], &autos[j]);
                 }
                 else
                 {
-                    obtenerDescripcionMarca( list, tam, list[i].id, auxMarcaI );
-                    obtenerDescripcionMarca( list, tam, list[j].id, auxMarcaJ );
+                    obtenerDescripcionMarca( marcas, tamM, autos[i].id, auxMarcaI );
+                    obtenerDescripcionMarca( marcas, tamM, autos[j].id, auxMarcaJ );
 
                     if( strcmp(auxMarcaI, auxMarcaJ) > 0 )
                     {
-                        autoSwap(&list[i], &list[j]);
+                        autoSwap(&autos[i], &autos[j]);
                     }
                 }
 
@@ -266,6 +268,7 @@ void mostrarAuto(eAuto car, eMarca marcas[], int tamM, eColor colores[], int tam
     }
 
 }
+
 int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[], int tamC)
 {
     int error = 1;
@@ -283,7 +286,7 @@ int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colo
 
         system("clear");
         printf("\n\n\n    *** MODIFICAR AUTO ***\n");
-        ordenarAutosPorMarcaPatente( autos, tam );
+        ordenarAutosPorMarcaPatente( autos, tam, marcas, tamM );
         mostrarAutos(autos, tam, marcas, tamM, colores, tamC);
         printf("Ingrese el ID del Auto: ");
         scanf("%d", &idAuto);
@@ -330,6 +333,7 @@ int modificarAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colo
             printf("     Confirma modificacion?");
             __fpurge(stdin);
             scanf("%c", &confirma);
+            confirma = tolower(confirma);
 
             if (confirma == 's')
             {
@@ -370,7 +374,7 @@ int bajaAuto(eAuto autos[], int tam, eMarca marcas[], int tamM, eColor colores[]
     {
         system("clear");
         printf("    *** BAJA DE AUTO ***\n");
-        ordenarAutosPorMarcaPatente( autos, tam );
+        ordenarAutosPorMarcaPatente( autos, tam, marcas, tamM );
         mostrarAutos(autos, tam, marcas, tamM, colores, tamC);
         printf("Ingrese el ID del Auto: ");
         scanf("%d", &idAuto);

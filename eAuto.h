@@ -4,7 +4,7 @@
 
 typedef struct{
     int id;
-    char patente[20];
+    char patente[8];
     int idMarca; //Validar
     int idColor; //Validar
     int modelo; //Año de fabricacion
@@ -134,7 +134,7 @@ int validarPatenteAuto(eAuto autos[], int tamA, char patente[]);
  * \return int
  *
  */
-int ordenarAutosPorMarcaPatente(eAuto list[], int tam);
+int ordenarAutosPorMarcaPatente(eAuto autos[], int tam, eMarca marcas[], int tamM);
 /** \brief Swapeo de estructuras eAuto
  *
  * \param a eAuto*

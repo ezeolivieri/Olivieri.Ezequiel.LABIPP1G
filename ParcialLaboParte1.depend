@@ -103,3 +103,100 @@
 	"eServicio.h"
 	"eColor.h"
 
+1603412310 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eAuto.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	<ctype.h>
+	<string.h>
+	"eAuto.h"
+	"eFecha.h"
+	"eMarca.h"
+	"eTrabajo.h"
+	"eServicio.h"
+	"eColor.h"
+
+1603411511 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eAuto.h
+	"eMarca.h"
+	"eColor.h"
+
+1603134342 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eMarca.h
+
+1603134606 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eColor.h
+
+1602895420 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eFecha.h
+
+1603411516 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eTrabajo.h
+	"eFecha.h"
+	"eAuto.h"
+	"eServicio.h"
+	"eMarca.h"
+	"eColor.h"
+
+1603134699 /home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eServicio.h
+
+1602895338 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eColor.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	<ctype.h>
+	<string.h>
+	"eFecha.h"
+	"eMarca.h"
+	"eAuto.h"
+	"eTrabajo.h"
+	"eServicio.h"
+	"eColor.h"
+
+1603133971 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eMarca.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	<ctype.h>
+	<string.h>
+	"eMarca.h"
+	"eFecha.h"
+	"eAuto.h"
+	"eTrabajo.h"
+	"eServicio.h"
+	"eColor.h"
+
+1602895329 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eServicio.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	<ctype.h>
+	<string.h>
+	"eFecha.h"
+	"eMarca.h"
+	"eAuto.h"
+	"eTrabajo.h"
+	"eServicio.h"
+	"eColor.h"
+
+1603410983 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/eTrabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	<ctype.h>
+	<string.h>
+	"eFecha.h"
+	"eMarca.h"
+	"eAuto.h"
+	"eTrabajo.h"
+	"eServicio.h"
+	"eColor.h"
+
+1603412369 source:/home/ezequielo/Escritorio/Prog-Labo1 - UTN/Olivieri.Ezequiel.LABIPP1G/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	<ctype.h>
+	<string.h>
+	"eAuto.h"
+	"eMarca.h"
+	"eTrabajo.h"
+	"eColor.h"
+	"eFecha.h"
+	"eServicio.h"
+

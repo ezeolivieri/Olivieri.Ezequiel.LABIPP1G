@@ -127,18 +127,18 @@ int altaTrabajo(eTrabajo works[], int tam, eAuto autos[], int tamA, eServicio se
             nuevoWork.id = idWork;
             nuevoWork.isEmpty = 0;
 
-            ordenarAutosPorMarcaPatente( autos, tamA );
+            ordenarAutosPorMarcaPatente( autos, tamA, marcas, tamM );
             mostrarAutos(autos, tamA, marcas, tamM, colores, tamC);
 
             printf("\n\n             INGRESE PATENTE DE AUTO: ");
             __fpurge(stdin);
-            gets(nuevoWork.patente);
+            fgets(nuevoWork.patente, 8, stdin);
 
             while( validarPatenteAuto(autos,tamA, nuevoWork.patente) == 0 )
             {
                 printf("             PATENTE INVALIDA. REINGRESE PATENTE: ");
                 __fpurge(stdin);
-                gets(nuevoWork.patente);
+                fgets(nuevoWork.patente, 8, stdin);
             }
 
             mostrarServicios(servicios, tamS);
