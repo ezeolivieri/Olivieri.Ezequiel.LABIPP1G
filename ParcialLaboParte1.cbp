@@ -31,14 +31,29 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Informes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Informes.h" />
+		<Unit filename="Validaciones.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Validaciones.h" />
 		<Unit filename="eAuto.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="eAuto.h" />
+		<Unit filename="eCliente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="eCliente.h" />
 		<Unit filename="eColor.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="eColor.h" />
+		<Unit filename="eFecha.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="eFecha.h" />
 		<Unit filename="eMarca.c">
 			<Option compilerVar="CC" />
@@ -47,6 +62,7 @@
 		<Unit filename="eServicio.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="eServicio.h" />
 		<Unit filename="eTrabajo.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -55,9 +71,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
-			<envvars />
-			<code_completion />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
